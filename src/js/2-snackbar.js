@@ -25,15 +25,16 @@ function onFormSubmit(event) {
     .then(function (delay) {
       iziToast.success({
         title: 'Success',
-        message: 'Fulfilled',
+        message: 'Fulfilled promise in ${delay}ms',
         position: 'bottomCenter',
       });
     })
     .catch(function (delay) {
       iziToast.error({
         title: 'Error',
-        message: 'Reject in promise',
+        message: '"Rejected promise in ${delay}ms"',
         position: 'bottomCenter',
       });
     });
 }
+
