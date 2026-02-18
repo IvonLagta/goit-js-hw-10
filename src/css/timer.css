@@ -1,0 +1,71 @@
+:root {
+  --primary: #4e75ff;
+  --primary-hover: #6c8cff;
+  --muted: #cfcfcf;
+  --muted-text: #989898;
+  --text: #2e2f42;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#datetime-picker {
+  grid-area: input;
+  border-radius: 4px;
+  border: none;
+  outline: 2px solid #808080;
+  padding: 8px 16px;
+  font:
+    400 12px 'Montserrat',
+    sans-serif;
+  letter-spacing: 0.04em;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+button[data-start] {
+  grid-area: button;
+  width: 75px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font: 500 16px/1.2 inherit;
+  letter-spacing: 0.04em;
+  transition: 0.25s;
+  border: none;
+}
+button[data-start]:hover {
+  background: var(--primary-hover);
+}
+button[data-start]:disabled {
+  background: var(--muted);
+  color: var(--muted-text);
+  pointer-events: none;
+}
+
+.timer {
+  grid-area: timer;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.value {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.label {
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--text);
+}
