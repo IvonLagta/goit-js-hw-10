@@ -8,6 +8,9 @@ const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
+const dateInput = document.querySelector("#datetime-picker");
+
+startBtn.disabled = true;
 
 let selectedDate = null;
 let timerInterval = null;
@@ -23,7 +26,7 @@ const options = {
     if (selectedDates[0] <= new Date()) {
       iziToast.error({
         title: 'Error',
-        message: 'Choose date in future',
+        message: 'Please choose a date in the future',
         position: 'bottomCenter',
       });
       startBtn.disabled = true;
@@ -48,6 +51,7 @@ function onStartBtnClick() {
   if (!selectedDate) return;
 
   startBtn.disabled = true;
+  dateInput.disabled = true;
 
   timerInterval = setInterval(() => {
     const now = new Date();
@@ -57,6 +61,8 @@ function onStartBtnClick() {
       clearInterval(timerInterval);
       updateTimer(0);
 
+      dateInput.disabled = false;
+      
       iziToast.success({
         title: 'Success',
         message: 'Great choice!!',
@@ -93,3 +99,4 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
